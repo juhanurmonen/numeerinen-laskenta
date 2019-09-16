@@ -7,140 +7,131 @@
 
 # #### Perusasiat
 
-# In[2]:
+# In[1]:
 
 
 import numpy as np
 
 
-# In[3]:
+# In[2]:
 
 
 x = np.array([3,5,7])
 print(x)
 
 
-# In[4]:
+# In[3]:
 
 
 x
 
 
-# In[5]:
+# In[4]:
 
 
 y=np.array([[13.0,7.5,10.7],[8.4,2.7,5.6]])
 print(y)
 
 
-# In[240]:
-
-
-z=np.array[[[6,41],[7,30],[11,15]],
-             [[3,15],[28,7],[0,4]],
-            [[14,9],[32,3],[9,26]],
-            [[21,13],[8,11],[2,15]]]
-
-
-# In[8]:
+# In[5]:
 
 
 ##### dimensioiden lukumäärä
 x.ndim
 
 
-# In[9]:
+# In[6]:
 
 
 y.ndim
 
 
-# In[10]:
+# In[7]:
 
 
 ##### muoto
 x.shape
 
 
-# In[11]:
+# In[8]:
 
 
 y.shape
 
 
-# In[12]:
+# In[9]:
 
 
 ##### tietotyyppi
 x.dtype
 
 
-# In[13]:
+# In[10]:
 
 
 y.dtype
 
 
-# In[14]:
+# In[11]:
 
 
 u=np.array([3,5,7])
 u.dtype
 
 
-# In[15]:
+# In[12]:
 
 
 u=np.array([3,5,7], dtype='int16')
 u.dtype
 
 
-# In[16]:
+# In[13]:
 
 
 ##### koko
 x.itemsize
 
 
-# In[17]:
+# In[14]:
 
 
 u.itemsize
 
 
-# In[18]:
+# In[15]:
 
 
 y.itemsize
 
 
-# In[19]:
+# In[16]:
 
 
 ###### Koko yhteensä: numer of bytes = size * itemsize
 x.size
 
 
-# In[20]:
+# In[17]:
 
 
 x.size*x.itemsize
 
 
-# In[21]:
+# In[18]:
 
 
 ##### koko yhteensä
 x.nbytes
 
 
-# In[23]:
+# In[19]:
 
 
 y.size
 
 
-# In[24]:
+# In[20]:
 
 
 y.size*y.itemsize
@@ -148,7 +139,7 @@ y.size*y.itemsize
 
 # #### Muutetaan solun arvoja, rivejä, sarakkeita
 
-# In[25]:
+# In[21]:
 
 
 #####
@@ -156,61 +147,61 @@ x = np.array([[11,12,13,14,15,16,17],[21,22,23,24,25,26,27]])
 print(x)
 
 
-# In[26]:
+# In[22]:
 
 
 x.shape
 
 
-# In[27]:
+# In[23]:
 
 
 ###### Haetaan tietyn solun arvo [rivi,sarake]
 x[1,4]
 
 
-# In[28]:
+# In[24]:
 
 
 ##### Sama solu laskien oikealta vasemmalle
 x[1,-3]
 
 
-# In[29]:
+# In[25]:
 
 
 ###### Haetaan tietty rivi
 x[0,:]
 
 
-# In[30]:
+# In[26]:
 
 
 ##### Haetaan tietty sarake
 x[:,4]
 
 
-# In[31]:
+# In[27]:
 
 
 ###### Haetaan [alkuindeksi:loppuindeksi:askelväli]
 x[0,1:6:2]
 
 
-# In[32]:
+# In[28]:
 
 
 x[0,1:-1:2]
 
 
-# In[33]:
+# In[29]:
 
 
 ###### Huomaa, että haku on poissulkeva
 x[0,1:5:2]
 
 
-# In[34]:
+# In[30]:
 
 
 ###### Sijoitetaan solun arvoksi haluttu
@@ -218,7 +209,7 @@ x[1,4]=77
 print(x)
 
 
-# In[35]:
+# In[31]:
 
 
 ##### Sijoitetaan rivin tai sarakkeen solujen arvoksi tietty arvo
@@ -226,7 +217,7 @@ x[:,3]=4
 print(x)
 
 
-# In[36]:
+# In[32]:
 
 
 ##### Sijoitetaan rivin tai sarakkeen solujen arvoiksi eri arvot
@@ -234,33 +225,14 @@ x[:,2]=[36,38]
 print(x)
 
 
-# In[38]:
+# In[33]:
 
 
 ##### Huomaa, että sijoittaessa ulottuvuuden on säilyttävä, muuten tulee virheilmoitus
 x[:,-2]=[66,63,69]
 
 
-# In[39]:
-
-
-s=np.array([[[6,7,11],[3,28,0],[14,32,9],[21,8,2]],[[6,41],[7,30],[11,15]],[[2,9,0,11],[15,26,4,39]]])
-print(s)
-
-
-# In[40]:
-
-
-s.ndim
-
-
-# In[41]:
-
-
-s.shape
-
-
-# In[42]:
+# In[34]:
 
 
 ##### 3-D-esimerkki
@@ -268,178 +240,178 @@ v = np.array([[[11,12],[13,14]],[[15,16],[17,18]]])
 print(v)
 
 
-# In[43]:
+# In[35]:
 
 
 ##### Hae tietyn solun arvo
 v[0,1,-1]
 
 
-# In[44]:
+# In[36]:
 
 
 ##### Rivejä ja sarakkeita haetaan vastaavasti
 v[:,1,:]
 
 
-# In[45]:
+# In[37]:
 
 
 v[:,1,0]
 
 
-# In[46]:
+# In[38]:
 
 
 ##### Solujen arvon korvaaminen, säilytä ulottuvuudet
 v[:,1,:]
 
 
-# In[47]:
+# In[39]:
 
 
 v[:,1,:] = [[3,4],[7,8]]
 v
 
 
-# In[48]:
+# In[40]:
 
 
 ##### Huom.
 v[:,1,:] = [[3,4,8],[7,8,11]]
 
 
-# In[49]:
+# In[41]:
 
 
 ##### Nollamatriiseja
 np.zeros((4))
 
 
-# In[50]:
+# In[42]:
 
 
 np.zeros((4,3))
 
 
-# In[51]:
+# In[43]:
 
 
 np.zeros((4,3,2))
 
 
-# In[52]:
+# In[44]:
 
 
 np.zeros((4,3,2,3))
 
 
-# In[53]:
+# In[45]:
 
 
 np.zeros((3,2))
 
 
-# In[54]:
+# In[46]:
 
 
 ##### Ykkösmatriiseja
 np.ones((4,2,3))
 
 
-# In[55]:
+# In[47]:
 
 
 ##### Muitakin argumentteja voi lisätä
 np.ones((4,2,3), dtype='int32')
 
 
-# In[56]:
+# In[48]:
 
 
 ##### Muut luvut
 np.full((2,4), 47)
 
 
-# In[57]:
+# In[49]:
 
 
 np.full((2,4), 47, dtype='float32') 
 
 
-# In[58]:
+# In[50]:
 
 
 ##### Olemassa olevan kaltainen
 x.shape
 
 
-# In[59]:
+# In[51]:
 
 
 np.full(x.shape, 16)
 
 
-# In[60]:
+# In[52]:
 
 
 np.full_like(x, 16)
 
 
-# In[61]:
+# In[53]:
 
 
 ##### Satunnaiset desimaaliluvut
 np.random.rand(3,4)
 
 
-# In[62]:
+# In[54]:
 
 
 np.random.rand(4,2,3)
 
 
-# In[63]:
+# In[55]:
 
 
 np.random.random_sample(x.shape)
 
 
-# In[64]:
+# In[56]:
 
 
 ##### Satunnaiset kokonaisluvut, 
 np.random.randint(16)
 
 
-# In[65]:
+# In[57]:
 
 
 np.random.randint(16, size=(4,2))
 
 
-# In[66]:
+# In[58]:
 
 
 ##### Huom. poissulkeva eli esim. seuraavassa arvot välillä 34-77 mahdollisia
 np.random.randint(34, 78, size=(4,2))
 
 
-# In[68]:
+# In[59]:
 
 
 ##### Toki negatiivisetkin luvut löytyvät
 np.random.randint(-44, 78, size=(3,4))
 
 
-# In[69]:
+# In[60]:
 
 
 ##### Identiteettimatriisi
 np.identity(4)
 
 
-# In[70]:
+# In[61]:
 
 
 ##### Toistoja
@@ -448,7 +420,7 @@ r1 = np.repeat(t1,3)
 print(r1)
 
 
-# In[71]:
+# In[62]:
 
 
 t2 = np.array([[15,27,39]])
@@ -456,30 +428,33 @@ r2 = np.repeat(t2,3, axis=0)
 print(r2)
 
 
-# In[74]:
+# In[63]:
 
 
 r21 = np.repeat(t2,3, axis=1)
 print(r21)
 
 
-# In[78]:
+# ##### Tehdään seuraava matriisi
+# 
+# <table>
+#     <tr><td>8</td><td>8</td><td>8</td><td>8</td><td>8</td></tr>
+#     <tr><td>8</td><td>0</td><td>0</td><td>0</td><td>8</td></tr>
+#     <tr><td>8</td><td>0</td><td>6</td><td>0</td><td>8</td></tr>
+#     <tr><td>8</td><td>0</td><td>0</td><td>0</td><td>8</td></tr>
+#     <tr><td>8</td><td>8</td><td>8</td><td>8</td><td>8</td></tr>
+# </table>
+
+# In[64]:
 
 
-##### Tehdään seuraava matriisi:
-#####    1 1 1 1 1
-#####    1 0 0 0 1
-#####    1 0 6 0 1
-#####    1 0 0 0 1
-#####    1 1 1 1 1
-
-matriisi = np.ones((5,5))
+matriisi = np.full((5,5),8)
 print(matriisi)
 pieni = np.zeros((3,3))
 print(pieni)
 
 
-# In[81]:
+# In[65]:
 
 
 ##### Nyt meillä on iso matriisi ja pieni keskellä oleva.
@@ -493,7 +468,7 @@ print(matriisi)
 
 # #### Numpy-taulukoiden (array) kopioinnissa huomioitavaa
 
-# In[84]:
+# In[66]:
 
 
 ##### Katsotaanpas numpy-taulukkoa ja sen kopiota
@@ -503,7 +478,7 @@ taulu2[2] = -44
 print(taulu1)
 
 
-# In[85]:
+# In[67]:
 
 
 ##### Taulu2 siis osoittaa samaan paikkaan kuin taulu1 ja sijoitus muuttaa molempien taulujen solun arvon
@@ -519,38 +494,38 @@ print(taulu4)
 
 # ### Aritmetiikkaa
 
-# In[88]:
+# In[68]:
 
 
 x = np.array([11,22,33,44,55])
 print(x)
 
 
-# In[90]:
+# In[69]:
 
 
 x+10
 
 
-# In[91]:
+# In[70]:
 
 
 x-10
 
 
-# In[92]:
+# In[71]:
 
 
 x*10
 
 
-# In[93]:
+# In[72]:
 
 
 x/10
 
 
-# In[98]:
+# In[73]:
 
 
 # Voit toistaa operaatioita, kokeile toistuvasti esim.:
@@ -560,7 +535,7 @@ x += 10
 print(x)
 
 
-# In[100]:
+# In[74]:
 
 
 ##### Yhteenlaskua ja muita perustoimintoja
@@ -569,34 +544,34 @@ t = np.array([1,2,3,4,5])
 s+t
 
 
-# In[110]:
+# In[75]:
 
 
 ##### Tulo
 s*t
 
 
-# In[101]:
+# In[76]:
 
 
 ##### Toinen potenssi
 s**2
 
 
-# In[107]:
+# In[77]:
 
 
 ##### Kosini ja muita trigonometrisiö operaatioita
 np.cos(s)
 
 
-# In[108]:
+# In[78]:
 
 
 np.sin(s)
 
 
-# In[104]:
+# In[79]:
 
 
 np.tan(t)
@@ -607,28 +582,28 @@ np.tan(t)
 
 # ### Lineaarialgebraa
 
-# In[112]:
+# In[80]:
 
 
 m = np.ones([3,4])
 print(m)
 
 
-# In[113]:
+# In[81]:
 
 
 n = np.full([4,3],4)
 print(n)
 
 
-# In[114]:
+# In[82]:
 
 
 #### Tulo ei nyt onnistu, koska ovat eri tyyppiä, esim.
 m*n
 
 
-# In[116]:
+# In[83]:
 
 
 ##### Otetaan siis matriisien tulo kuten lineaarialgebrassa
@@ -636,7 +611,7 @@ m*n
 np.matmul(m,n)
 
 
-# In[117]:
+# In[84]:
 
 
 ##### Determinantin etsiminen
@@ -649,104 +624,119 @@ np.linalg.det(i)
 
 # ### Tilastomatematiikkaa
 
-# In[134]:
+# In[85]:
 
 
 tilasto = np.array([[11,24,37],[22,25,28]])
 tilasto
 
 
-# In[135]:
+# In[86]:
 
 
 ##### Minimiarvo
 np.min(tilasto)
 
 
-# In[136]:
+# In[87]:
 
 
 ##### Maksimiarvo
 np.max(tilasto)
 
 
-# In[137]:
+# In[88]:
 
 
 ##### Riveittäin
 np.min(tilasto, axis=1)
 
 
-# In[139]:
+# In[89]:
 
 
 ##### Sarakkeittain
 np.min(tilasto, axis=0)
 
 
-# In[140]:
+# In[90]:
 
 
 np.max(tilasto, axis=0)
 
 
-# In[141]:
+# In[91]:
 
 
 ##### Muita operaatioita
 np.sum(tilasto)
 
 
-# In[142]:
+# In[92]:
 
 
 np.sum(tilasto,axis=0)
 
 
-# In[143]:
+# In[93]:
 
 
 np.sum(tilasto,axis=1)
 
 
+# In[94]:
+
+
+np.percentile(tilasto,0.4,axis=0)
+
+
+# In[95]:
+
+
+np.percentile(tilasto,0.4,axis=1)
+
+
+# ##### Ja paljon lisää,ks.
+# https://docs.scipy.org/doc/numpy/reference/routines.statistics.html
+
 # ##### Numpy-taulukon uudelleenmuotoiluja
 
-# In[148]:
+# In[96]:
 
 
 taulu20 = np.array([[20,30,40,50],[60,70,80,90]])
 print(taulu20)
 
 
-# In[149]:
+# In[97]:
 
 
 taulu81 = taulu20.reshape([8,1])
 print(taulu81)
 
 
-# In[150]:
+# In[98]:
 
 
 taulu18 = taulu20.reshape([1,8])
 print(taulu18)
 
 
-# In[151]:
+# In[99]:
 
 
 taulu42 = taulu20.reshape([4,2])
 print(taulu42)
 
 
-# In[152]:
+# In[100]:
 
 
 taulu222 = taulu20.reshape([2,2,2])
 print(taulu222)
 
 
-# In[153]:
+# In[101]:
 
 
 ##### Arvojen lukumäärän tulee säilyä, muuten tulee virheilmoitus
@@ -754,7 +744,7 @@ taulu23 = taulu20.reshape([2,3])
 print(taulu23)
 
 
-# In[157]:
+# In[102]:
 
 
 ##### Pystysuuntaiset pinovektorit vstack
@@ -765,19 +755,19 @@ print(vec1)
 print(vec2)
 
 
-# In[158]:
+# In[103]:
 
 
 np.vstack([vec1,vec2])
 
 
-# In[160]:
+# In[104]:
 
 
 np.vstack([vec1,vec1,vec2,vec2])
 
 
-# In[161]:
+# In[105]:
 
 
 ##### Huom. Vektoreiden kokojen tulee olla samanlaiset:
@@ -787,7 +777,7 @@ vec3 = np. array([33,43,53,63,73])
 np.vstack([vec2,vec3])
 
 
-# In[163]:
+# In[106]:
 
 
 ###### Vaakasuuntaiset pinovektorit hstack
@@ -795,27 +785,27 @@ np.vstack([vec2,vec3])
 np.hstack([vec1,vec3])
 
 
-# In[167]:
+# In[107]:
 
 
 hor1 = np.ones((2,4))
 print(hor1)
 
 
-# In[169]:
+# In[108]:
 
 
 hor2 = np.zeros((2,2))
 print(hor2)
 
 
-# In[171]:
+# In[109]:
 
 
 np.hstack((hor1,hor2))
 
 
-# In[172]:
+# In[110]:
 
 
 np.hstack([hor1,hor2])
@@ -825,7 +815,7 @@ np.hstack([hor1,hor2])
 
 # #### Data tiedostosta
 
-# In[179]:
+# In[111]:
 
 
 ##### Seuraava yksinkertainen data on txt-tiedostossa osoitteessa
@@ -837,7 +827,7 @@ tdstodata = np.genfromtxt('http://myy.haaga-helia.fi/~digiosaaja/digipiiri/data/
 print(tdstodata)
 
 
-# In[180]:
+# In[112]:
 
 
 ##### Datatyyppi on automaattisesti float.
@@ -846,7 +836,7 @@ print(tdstodata)
 tdstodata.astype('int32')
 
 
-# In[181]:
+# In[113]:
 
 
 ##### Huom. astype tekee kopion alkuperäisesti, eri tietotyypit kun vievät eri määrän tilaa:
@@ -855,7 +845,7 @@ tdstodata.astype('int32')
 tdstodata
 
 
-# In[182]:
+# In[114]:
 
 
 ##### Alkuperäinen muuttuu vasa sijoittamalla
@@ -866,13 +856,13 @@ tdstodata
 
 # #### Boolean-arvot ja edistyneempää indeksöintiä
 
-# In[183]:
+# In[115]:
 
 
 print(tdstodata)
 
 
-# In[185]:
+# In[116]:
 
 
 ##### Testataan totuusarvoja
@@ -880,13 +870,13 @@ print(tdstodata)
 tdstodata > 80
 
 
-# In[189]:
+# In[117]:
 
 
 tdstodata <= 92
 
 
-# In[191]:
+# In[118]:
 
 
 ##### Etsitään ehdot toteuttavat arvot
@@ -895,7 +885,7 @@ tdstodata <= 92
 tdstodata[tdstodata > 70]
 
 
-# In[193]:
+# In[119]:
 
 
 ##### NumPy:ssä voi nimittäin indeksöidä listalla:
@@ -907,13 +897,13 @@ k = np.array([11,22,33,44,55,66,77,88,99])
 k[[3,4,7]]
 
 
-# In[194]:
+# In[120]:
 
 
 k[[3,4,-2]]
 
 
-# In[195]:
+# In[121]:
 
 
 ##### Indeksöinnin sovelluksia, any
@@ -921,13 +911,13 @@ k[[3,4,-2]]
 np.any(tdstodata > 70, axis=0)
 
 
-# In[196]:
+# In[122]:
 
 
 np.any(tdstodata > 70, axis=1)
 
 
-# In[197]:
+# In[123]:
 
 
 ##### Indeksöinnin sovelluksia, all
@@ -935,13 +925,13 @@ np.any(tdstodata > 70, axis=1)
 np.all(tdstodata < 70, axis=0)
 
 
-# In[201]:
+# In[124]:
 
 
 np.all(tdstodata < 150, axis=1)
 
 
-# In[203]:
+# In[125]:
 
 
 ##### Lisää totuusarvojen testamista
@@ -949,7 +939,7 @@ np.all(tdstodata < 150, axis=1)
 ((tdstodata > 40) & (tdstodata < 100))
 
 
-# In[205]:
+# In[126]:
 
 
 ##### Negaatio on ~; äskeinen toisin päin:
@@ -989,46 +979,46 @@ np.all(tdstodata < 150, axis=1)
 
 # Entä solut, jotka sisältävät luvut 4, 5, 24, 25, 29 ja 30?
 
-# In[216]:
+# In[127]:
 
 
 h = np.array([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[21,22,23,24,25],[26,27,28,29,30]])
 print(h)
 
 
-# In[218]:
+# In[128]:
 
 
 h[2:4,0:2]
 
 
-# In[223]:
+# In[129]:
 
 
 h[[0,1,2,3],[1,2,3,4]]
 
 
-# In[228]:
+# In[130]:
 
 
 h[[0,4,5],3:]
 
 
-# In[230]:
+# In[131]:
 
 
 ##### Lopuksi vielä tiedostonkäsittelyä: tallennus
 ##### Tiedosto tallentuu samaan hakemistoon, mihin Python on asennettu
 
-np.save('h',h)
+np.save('harjoitus',h)
 
 
-# In[232]:
+# In[132]:
 
 
 ##### Tiedoston lataaminen:
 
-np.load('h.npy')
+np.load('harjoitus.npy')
 
 
 # Lähteinä käytetty: <br> <a href="https://youtu.be/QUT1VHiLmmI">Keith Galli: Python NumPy Tutorial for Beginners</a> (YouTube) <br>

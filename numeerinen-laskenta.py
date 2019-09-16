@@ -33,12 +33,13 @@ y=np.array([[13.0,7.5,10.7],[8.4,2.7,5.6]])
 print(y)
 
 
-# In[7]:
+# In[240]:
 
 
-##### tämä pitää korjata
-z=np.array([[[6,7,11],[3,28,0],[14,32,9],[21,8,2]],[[6,7,11],[41,30,15]],[[11,39],[0,4],[9,26],[2,15]])
-print(z)
+z=np.array[[[6,41],[7,30],[11,15]],
+             [[3,15],[28,7],[0,4]],
+            [[14,9],[32,3],[9,26]],
+            [[21,13],[8,11],[2,15]]]
 
 
 # In[8]:
@@ -604,7 +605,7 @@ np.tan(t)
 # ##### Ja tietenkin paljon muuta, ks.
 # https://docs.scipy.org/doc/numpy/reference/routines.math.html
 
-# ### Lineaarialgebra
+# ### Lineaarialgebraa
 
 # In[112]:
 
@@ -647,3 +648,388 @@ np.linalg.det(i)
 # https://docs.scipy.org/doc/numpy/reference/routines.linalg.html
 
 # ### Tilastomatematiikkaa
+
+# In[134]:
+
+
+tilasto = np.array([[11,24,37],[22,25,28]])
+tilasto
+
+
+# In[135]:
+
+
+##### Minimiarvo
+np.min(tilasto)
+
+
+# In[136]:
+
+
+##### Maksimiarvo
+np.max(tilasto)
+
+
+# In[137]:
+
+
+##### Riveittäin
+np.min(tilasto, axis=1)
+
+
+# In[139]:
+
+
+##### Sarakkeittain
+np.min(tilasto, axis=0)
+
+
+# In[140]:
+
+
+np.max(tilasto, axis=0)
+
+
+# In[141]:
+
+
+##### Muita operaatioita
+np.sum(tilasto)
+
+
+# In[142]:
+
+
+np.sum(tilasto,axis=0)
+
+
+# In[143]:
+
+
+np.sum(tilasto,axis=1)
+
+
+# ##### Numpy-taulukon uudelleenmuotoiluja
+
+# In[148]:
+
+
+taulu20 = np.array([[20,30,40,50],[60,70,80,90]])
+print(taulu20)
+
+
+# In[149]:
+
+
+taulu81 = taulu20.reshape([8,1])
+print(taulu81)
+
+
+# In[150]:
+
+
+taulu18 = taulu20.reshape([1,8])
+print(taulu18)
+
+
+# In[151]:
+
+
+taulu42 = taulu20.reshape([4,2])
+print(taulu42)
+
+
+# In[152]:
+
+
+taulu222 = taulu20.reshape([2,2,2])
+print(taulu222)
+
+
+# In[153]:
+
+
+##### Arvojen lukumäärän tulee säilyä, muuten tulee virheilmoitus
+taulu23 = taulu20.reshape([2,3])
+print(taulu23)
+
+
+# In[157]:
+
+
+##### Pystysuuntaiset pinovektorit vstack
+vec1 = np.array([11,21,31])
+vec2 = np.array([12,22,32])
+
+print(vec1)
+print(vec2)
+
+
+# In[158]:
+
+
+np.vstack([vec1,vec2])
+
+
+# In[160]:
+
+
+np.vstack([vec1,vec1,vec2,vec2])
+
+
+# In[161]:
+
+
+##### Huom. Vektoreiden kokojen tulee olla samanlaiset:
+
+vec3 = np. array([33,43,53,63,73])
+
+np.vstack([vec2,vec3])
+
+
+# In[163]:
+
+
+###### Vaakasuuntaiset pinovektorit hstack
+
+np.hstack([vec1,vec3])
+
+
+# In[167]:
+
+
+hor1 = np.ones((2,4))
+print(hor1)
+
+
+# In[169]:
+
+
+hor2 = np.zeros((2,2))
+print(hor2)
+
+
+# In[171]:
+
+
+np.hstack((hor1,hor2))
+
+
+# In[172]:
+
+
+np.hstack([hor1,hor2])
+
+
+# ### Muuta huomattavaa
+
+# #### Data tiedostosta
+
+# In[179]:
+
+
+##### Seuraava yksinkertainen data on txt-tiedostossa osoitteessa
+##### http://myy.haaga-helia.fi/~digiosaaja/digipiiri/data/numpy-data-tekstitiedostosta.txt
+
+##### Tässä data on samassa muodossa kuin tiedostossa, genfromtxt huolehtii rivinvaihdosta
+
+tdstodata = np.genfromtxt('http://myy.haaga-helia.fi/~digiosaaja/digipiiri/data/numpy-data-tekstitiedostosta.txt', delimiter=',')
+print(tdstodata)
+
+
+# In[180]:
+
+
+##### Datatyyppi on automaattisesti float.
+##### Datatyypin voi muuttaa astype-komennolla
+
+tdstodata.astype('int32')
+
+
+# In[181]:
+
+
+##### Huom. astype tekee kopion alkuperäisesti, eri tietotyypit kun vievät eri määrän tilaa:
+##### Alkuperäinen on siis vieläkin tyyppiä float:
+
+tdstodata
+
+
+# In[182]:
+
+
+##### Alkuperäinen muuttuu vasa sijoittamalla
+
+tdstodata = tdstodata.astype('int32')
+tdstodata
+
+
+# #### Boolean-arvot ja edistyneempää indeksöintiä
+
+# In[183]:
+
+
+print(tdstodata)
+
+
+# In[185]:
+
+
+##### Testataan totuusarvoja
+
+tdstodata > 80
+
+
+# In[189]:
+
+
+tdstodata <= 92
+
+
+# In[191]:
+
+
+##### Etsitään ehdot toteuttavat arvot
+##### Tässä siis indeksöidään ehdon mukaisesti
+
+tdstodata[tdstodata > 70]
+
+
+# In[193]:
+
+
+##### NumPy:ssä voi nimittäin indeksöidä listalla:
+
+k = np.array([11,22,33,44,55,66,77,88,99])
+
+##### Valitaan tästä 44, 55 ja 88:
+
+k[[3,4,7]]
+
+
+# In[194]:
+
+
+k[[3,4,-2]]
+
+
+# In[195]:
+
+
+##### Indeksöinnin sovelluksia, any
+
+np.any(tdstodata > 70, axis=0)
+
+
+# In[196]:
+
+
+np.any(tdstodata > 70, axis=1)
+
+
+# In[197]:
+
+
+##### Indeksöinnin sovelluksia, all
+
+np.all(tdstodata < 70, axis=0)
+
+
+# In[201]:
+
+
+np.all(tdstodata < 150, axis=1)
+
+
+# In[203]:
+
+
+##### Lisää totuusarvojen testamista
+
+((tdstodata > 40) & (tdstodata < 100))
+
+
+# In[205]:
+
+
+##### Negaatio on ~; äskeinen toisin päin:
+
+~((tdstodata > 40) & (tdstodata < 100))
+
+
+# ##### Harjoitellaan indeksejä
+# 
+# Otetaan käsittelyyn seuraava taulu:
+#   
+
+# <table>
+# 
+# <tr align="center"><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+# 
+# <tr align="center"><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+# 
+# <tr align="center"><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr>
+# 
+# <tr align="center"><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td></tr>
+# 
+# <tr align="center"><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td></tr>
+# 
+# <tr align="center"><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td></tr>
+# 
+# </table>
+
+# Millä koodilla tästä saa ulos matriisin:
+# 
+# <table>
+# <tr align="center"><td>11</td><td>12</td></tr>
+# <tr align="center"><td>16</td><td>17</td></tr>
+# </table>
+
+# Entä solut, jotka tässä sisältävät luvut 2, 8, 14, 20?
+
+# Entä solut, jotka sisältävät luvut 4, 5, 24, 25, 29 ja 30?
+
+# In[216]:
+
+
+h = np.array([[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15],[16,17,18,19,20],[21,22,23,24,25],[26,27,28,29,30]])
+print(h)
+
+
+# In[218]:
+
+
+h[2:4,0:2]
+
+
+# In[223]:
+
+
+h[[0,1,2,3],[1,2,3,4]]
+
+
+# In[228]:
+
+
+h[[0,4,5],3:]
+
+
+# In[230]:
+
+
+##### Lopuksi vielä tiedostonkäsittelyä: tallennus
+##### Tiedosto tallentuu samaan hakemistoon, mihin Python on asennettu
+
+np.save('h',h)
+
+
+# In[232]:
+
+
+##### Tiedoston lataaminen:
+
+np.load('h.npy')
+
+
+# Lähteinä käytetty: <br> <a href="https://youtu.be/QUT1VHiLmmI">Keith Galli: Python NumPy Tutorial for Beginners</a> (YouTube) <br>
+# <a href="https://youtu.be/uQsLXB1Pmqk">The Top 5 Machine Learning Libraries in Python</a> (YouTube)
